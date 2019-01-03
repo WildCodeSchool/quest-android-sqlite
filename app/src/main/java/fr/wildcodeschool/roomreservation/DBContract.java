@@ -1,3 +1,5 @@
+package fr.wildcodeschool.roomreservation;
+
 import android.provider.BaseColumns;
 
 public class DBContract {

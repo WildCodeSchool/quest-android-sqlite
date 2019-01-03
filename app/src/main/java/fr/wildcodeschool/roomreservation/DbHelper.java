@@ -1,6 +1,10 @@
+package fr.wildcodeschool.roomreservation;
+
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import fr.wildcodeschool.roomreservation.DBContract;
 
 public class DbHelper extends SQLiteOpenHelper {
 
@@ -36,6 +40,6 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        super.onDowngrade(db, oldVersion, newVersion);
+        onUpgrade(db, oldVersion, newVersion);
     }
 }
