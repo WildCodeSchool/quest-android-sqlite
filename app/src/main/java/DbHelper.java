@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DbHelper extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "Persons.db";
+    public static final String DATABASE_NAME = "database.db";
 
     public static final String SQL_CREATE_PERSON_ENTRIES =
             "CREATE TABLE " + DBContract.PersonEntry.TABLE_NAME + " (" +
@@ -18,10 +18,12 @@ public class DbHelper extends SQLiteOpenHelper {
 
 
     public DbHelper(Context context) {
+
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     public void onCreate(SQLiteDatabase db) {
+
         db.execSQL(SQL_CREATE_PERSON_ENTRIES);
     }
 
@@ -32,5 +34,8 @@ public class DbHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-
+    @Override
+    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        super.onDowngrade(db, oldVersion, newVersion);
+    }
 }
